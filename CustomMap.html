@@ -41,7 +41,7 @@
     zoom: 13
   });
 
-  const trailheadsRenderer = {
+   const trailheadsRenderer = {
         "type": "simple",
         "symbol": {
           "type": "picture-marker",
@@ -51,12 +51,32 @@
         }
       }
 
+      const trailheadsLabels = {
+        symbol: {
+          type: "text",
+          color: "#FFFFFF",
+          haloColor: "#5E8D74",
+          haloSize: "2px",
+          font: {
+            size: "12px",
+            family: "Noto Sans",
+            style: "italic",
+            weight: "normal"
+          }
+        },
+
+        labelPlacement: "above-center",
+        labelExpressionInfo: {
+          expression: "$feature.LocationName"
+        }
+      };
+
 //Trailheads feature layer (points)
-  const trailheadsLayer = new FeatureLayer({
+  const trailheads = new FeatureLayer({
     url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/ArcGIS/rest/services/heart_shaped_travel_destinations/FeatureServer/0"
   });
 
-  map.add(trailheadsLayer);
+  map.add(trailheads);
  });
 
 
