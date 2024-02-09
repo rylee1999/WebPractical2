@@ -57,6 +57,12 @@
         }
       }
 
+      // Define a pop-up for Trailheads
+      const popupTrailheads = {
+        "title": "Trailhead",
+        "content": "<b>Trail:</b> {LocationName}<br><b>City:</b> {Location}<br><b>Cross Street:</b> {Description}"
+      }
+
       const trailheadsLabels = {
         symbol: {
           type: "text",
@@ -83,7 +89,9 @@
     url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/ArcGIS/rest/services/heart_shaped_travel_destinations/FeatureServer/0",
       
       renderer: trailheadsRenderer,
-        labelingInfo: [trailheadsLabels]
+        labelingInfo: [trailheadsLabels],
+        outFields: ["LocationName","Location","Description"],
+        popupTemplate: popupTrailheads
       });
 
       map.add(trailheads);
