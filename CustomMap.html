@@ -41,6 +41,16 @@
     zoom: 13
   });
 
+  const trailheadsRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "http://static.arcgis.com/images/Symbols/NPS/npsPictograph_0231b.png",
+          "width": "18px",
+          "height": "18px"
+        }
+      }
+
 //Trailheads feature layer (points)
   const trailheadsLayer = new FeatureLayer({
     url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/ArcGIS/rest/services/heart_shaped_travel_destinations/FeatureServer/0"
@@ -49,27 +59,7 @@
   map.add(trailheadsLayer);
  });
 
- results.forEach((result) => {
-                view.graphics.add(
-                  new Graphic({
-                    attributes: result.attributes, // Data attributes returned
-                    geometry: result.location, // Point returned
-                    symbol: {
-                      type: "simple-marker",
-                      color: "#000000",
-                      size: "12px",
-                      outline: {
-                        color: "#ffffff",
-                        width: "2px"
-                      }
-                    },
 
-                    popupTemplate: {
-                      title: "{LocationName}", // Data attribute names
-                      content: "{Location}"
-                    }
-                  })
-                );
               });
 </script>
 
