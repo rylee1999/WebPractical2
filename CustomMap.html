@@ -47,10 +47,30 @@
   });
 
   map.add(trailheadsLayer);
+ });
 
+ results.forEach((result) => {
+                view.graphics.add(
+                  new Graphic({
+                    attributes: result.attributes, // Data attributes returned
+                    geometry: result.location, // Point returned
+                    symbol: {
+                      type: "simple-marker",
+                      color: "#000000",
+                      size: "12px",
+                      outline: {
+                        color: "#ffffff",
+                        width: "2px"
+                      }
+                    },
 
-
-  });
+                    popupTemplate: {
+                      title: "{LocationName}", // Data attribute names
+                      content: "{Location}"
+                    }
+                  })
+                );
+              });
 </script>
 
 </head>
