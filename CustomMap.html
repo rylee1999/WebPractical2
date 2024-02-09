@@ -44,8 +44,18 @@ h1 {
         //api from personal account
         esriConfig.apiKey = "AAPK0fc2007142c840f39d4abddfd58b1675fWOa4FjjuY16776Ki1eC7C6gTYkNXRo9UuFWwjKZ-9_zvnTMw86p_oVx0_wdhY2f";
       
-      const map = new Map({
-        basemap: "arcgis/topographic" // basemap styles service
+     const imageTileLayer = new TileLayer({
+        portalItem: {
+          id: "2a060171c43e44888911e0d89145fd0c" // imagery no labels
+        }
+      });
+
+      const basemap = new Basemap({
+        baseLayers: [
+
+          imageTileLayer,
+
+        ]
       });
 
       const view = new MapView({
