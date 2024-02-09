@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-
-
 <html>
 <head>
   <meta name="description" content="Style a feature layer">
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-  <title>ArcGIS Maps SDK for JavaScript Tutorials: Style a feature layer</title>
+  <title>Top 5 Valentines Day Themed Destinations</title>
   <style>
     html,
     body,
@@ -47,7 +45,7 @@
         zoom: 13
       });
 
-      const trailheadsRenderer = {
+      const HeartRenderer = {
         "type": "simple",
         "symbol": {
           "type": "picture-marker",
@@ -58,12 +56,12 @@
       }
 
       // Define a pop-up for Trailheads
-      const popupTrailheads = {
-        "title": "Trailhead",
-        "content": "<b>Trail:</b> {LocationName}<br><b>City:</b> {Location}<br><b>Cross Street:</b> {Description}"
+      const popupHeart = {
+        "title": "Valentines Day Themed Locations",
+        "content": "<b>Destination:</b> {LocationName}<br><b>Location:</b> {Location}<br><b>Cross Description:</b> {Description}"
       }
 
-      const trailheadsLabels = {
+      const HeartLabels = {
         symbol: {
           type: "text",
           color: "#FFFFFF",
@@ -84,17 +82,17 @@
       };
 
       // Create the layer and set the renderer
-      const trailheads = new FeatureLayer({
+      const Heart = new FeatureLayer({
       
     url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/ArcGIS/rest/services/heart_shaped_travel_destinations/FeatureServer/0",
       
-      renderer: trailheadsRenderer,
-        labelingInfo: [trailheadsLabels],
+      renderer: HeartRenderer,
+        labelingInfo: [HeartLabels],
         outFields: ["LocationName","Location","Description"],
-        popupTemplate: popupTrailheads
+        popupTemplate: popupTrailHeart
       });
 
-      map.add(trailheads);
+      map.add(Heart);
 
     });
   </script>
